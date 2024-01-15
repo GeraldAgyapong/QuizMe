@@ -1,0 +1,65 @@
+<div class="flex flex-col items-center justify-center pt-20 w-screen">
+  <div *ngIf="loading; else content">
+    <mat-progress-spinner
+      class="mt-4"
+      mode="indeterminate"
+      diameter="30"
+    ></mat-progress-spinner>
+  </div>
+
+  <ng-template #content>
+    <div *ngIf="!hasSessionEnded; else end">
+      <div class="my-2 mx-20 flex-1 px-[30vw]">
+        <mat-card-header>
+          <mat-card-title>
+            <p class="text-4xl">
+              Q{{ currentIndex + 1 }}: {{ questions[currentIndex].question }}
+            </p>
+          </mat-card-title>
+        </mat-card-header>
+
+        <div class="pb-2">
+          <mat-progress-bar
+            mode="determinate"
+            [value]="((currentIndex + 1) / questions.length) * 100"
+          ></mat-progress-bar>
+        </div>
+
+        <div
+          *ngFor="
+            let answer of questions[currentIndex].incorrectAnswers;
+            let i = index
+          "
+        >
+          <mat-card
+            class="my-2 hover:shadow-lg hover:cursor-pointer"
+            (click)="selectAnswer(i)"
+          >
+            <mat-card-header>
+              <div>
+                <p class="font-bold">{{ indexToAlphabetLetter(i) }}.</p>
+              </div>
+              <p>{{ answer }}</p>
+            </mat-card-header>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #end>
+      <div
+        class="my-2 mx-20 flex-1 w-1/2 flex flex-col items-center justify-center"
+      >
+        <p class="text-4xl">Game Over!</p>
+        <p class="text-3xl pt-2 pb-5">Your Score: {{ getScore() }}</p>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="fetchTriviaQuestions()"
+        >
+          Restart
+        </button>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

@@ -1,0 +1,24 @@
+<div class="p-4 w-screen flex justify-center">
+  <!-- Container for the list -->
+  <ul>
+    <!-- Loop through the users asynchronously -->
+    <li *ngFor="let user of users$ | async; let i = index">
+      <!-- Angular Material card header -->
+      <mat-card-header>
+        <!-- Avatar section -->
+        <div mat-card-avatar class="mat-card-avatar flex items-center">
+          <!-- Display an icon for the first position and index number for others -->
+          <mat-icon *ngIf="i === 0">star</mat-icon> <!-- Icon for the first position -->
+          <span *ngIf="i !== 0">{{ i + 1 }}</span> <!-- Index number for other positions -->
+        </div>
+        <!-- Title section -->
+        <mat-card-title>
+          {{ isPlayerMe(user.id) ? "You" : user.name }}
+          <!-- Display "You" if it's the current player, otherwise show the user's name -->
+        </mat-card-title>
+        <!-- Subtitle section showing the user's score -->
+        <mat-card-subtitle>Score: {{ user.score }}</mat-card-subtitle>
+      </mat-card-header>
+    </li>
+  </ul>
+</div>

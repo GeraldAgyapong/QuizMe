@@ -1,0 +1,20 @@
+/* Import Tailwind CSS base, components, and utilities */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Import Angular Material prebuilt themes */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+/* Apply styles to HTML and body elements */
+html,
+body {
+  height: 100%;
+}
+
+/* Body styling */
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

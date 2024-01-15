@@ -1,0 +1,17 @@
+<!-- MatToolbar component for the header -->
+<mat-toolbar class="p-4">
+  <span class="mr-auto">Quiz-Me</span> <!-- Title or content aligned to the left -->
+</mat-toolbar>
+
+<!-- MatTabGroup component containing tabs for Play and Leaderboard -->
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="flex w-full">
+  <!-- Tab for Play -->
+  <mat-tab label="Play">
+    <app-play></app-play> <!-- Custom Angular component 'app-play' to handle Play functionality -->
+  </mat-tab>
+
+  <!-- Tab for Leaderboard -->
+  <mat-tab label="Leaderboard">
+    <app-leaderboard></app-leaderboard> <!-- Custom Angular component 'app-leaderboard' for displaying the leaderboard -->
+  </mat-tab>
+</mat-tab-group>
