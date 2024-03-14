@@ -8,9 +8,9 @@ export class AuthService {
   constructor(private angularFireAuth: AngularFireAuth) {} // Inject AngularFireAuth in the constructor
 
   // Initialize method to check if a player is logged in and create a player if not
-  init(): void {
+ async init(): Promise <void> {
     if (!this.isPlayerLoggedIn()) {
-      this.createPlayer(); // Create a player if not logged in
+    await this.createPlayer(); // Create a player if not logged in
     } else {
       this.setPlayerId(this.getPlayerIdFromLocalStorage()); // Set player ID if logged in
     }

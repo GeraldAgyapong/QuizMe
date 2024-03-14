@@ -19,7 +19,7 @@ export class AppComponent {
   constructor(private authService: AuthService) {}
 
   // Lifecycle hook - ngOnInit is called after the component is initialized
-  ngOnInit(): void {
+ async ngOnInit(): Promise <void> {
     this.authService.init(); // Initialize AuthService when the component initializes
   }
 }
