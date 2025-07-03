@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  quizme-frontend:
+    build: .
+    ports:
+      - "4200:80"
+    container_name: quizme-app
